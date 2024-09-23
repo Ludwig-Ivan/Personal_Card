@@ -3,12 +3,11 @@
 ---
 
 <div class="Cabezera">
-    <h1>Personal_Page</h1>
+    <h1 id="titulo">Metzli Guadalupe</h1>
     <ul>
-        <li><a href="#">Opcion 1</a></li>
-        <li><a href="#">Opcion 2</a></li>
-        <li><a href="#">Opcion 3</a></li>
-        <li><a href="#">Opcion 4</a></li>
+        <li><a href="#">Gustos</a></li>
+        <li><a href="#">Sueños</a></li>
+        <li><a href="#">Experiencias</a></li>
     </ul>
 </div>
 
@@ -16,15 +15,36 @@
     h1 {
         padding: 0px;
         margin: 0px;
-        position: relative;
-        top: 15px;
         color: #f2f2f2;
         transition-duration: 0.5s;
+        align-self: center;
     }
 
     h1:hover {
-        transition-duration: 0.5s;
+        transition-duration: 1s;
         font-size: 2.5em;
+    }
+
+    h1:hover {
+        animation: colorChange 5s infinite;
+    }
+
+    @keyframes colorChange {
+        0% {
+            color: red;
+        }
+        25% {
+            color: blue;
+        }
+        50% {
+            color: green;
+        }
+        75% {
+            color: orange;
+        }
+        100% {
+            color: red;
+        }
     }
 
     .Cabezera {

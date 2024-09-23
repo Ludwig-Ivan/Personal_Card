@@ -1,10 +1,16 @@
 ---
+interface Props {
+    title: string;
+    img: string;
+    ref: string;
+}
 
+const { title, img, ref } = Astro.props;
 ---
 
 <div class="Info_Sec">
-    <img src="#" alt="Imagen de Seccion" />
-    <a href="#">Boton</a>
+    <img src={img} alt="Imagen de Seccion" />
+    <a href={ref}>{title ? title : "Boton"}</a>
 </div>
 
 <style>
@@ -13,16 +19,25 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 550px;
+        height: 520px;
         width: 378px;
         background-color: #8758ff;
         border-radius: 10px;
+        overflow: hidden;
     }
 
     img {
         height: 274px;
+        width: 378px;
+        image-rendering: optimizeQuality;
         align-self: flex-start;
         border-radius: 10px 10px 0px 0px;
+        transition-duration: 1s;
+    }
+
+    img:hover {
+        transition-duration: 1s;
+        transform: scale(1.2);
     }
 
     a {

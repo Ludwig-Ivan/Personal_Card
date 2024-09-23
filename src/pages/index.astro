@@ -8,13 +8,22 @@ import Info from "../components/Info.astro";
 	<main>
 		<Cabezera />
 		<div class="Frase_contenido">
-			<div class="Frase_imagen"><img src="#" alt="Frase Favorita" /></div>
+			<div class="Frase_imagen">
+				<img src="img/creatividad.png" alt="Frase Favorita" />
+			</div>
 			<div class="Frase_texto">
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-					provident architecto necessitatibus eos quos fuga omnis
-					praesentium ipsa ducimus, iste est beatae modi illo? Officia
-					suscipit molestiae ducimus rem praesentium?
+					Es una persona <em id="caracteristica_1">INTROVERTIDA</em>, <em
+						id="caracteristica_2">CREATIVA</em
+					> y
+					<em id="caracteristica_3">REFLEXIVA</em>. <br />Algo que
+					valora de si misma es la capacidad de <em
+						id="caracteristica_4">pensar antes de actuar</em
+					>, siendo esto algo clave en su ser. Lo que la hace única es
+					la actitud que toma ante <em id="caracteristica_5"
+						>escuchar a los demás</em
+					>; <br />pese que no tenga la respuesta adecuada, compromete
+					su esfuerzo para empatizar con las personas.
 				</p>
 			</div>
 		</div>
@@ -31,13 +40,24 @@ import Info from "../components/Info.astro";
 			</div>
 		</div>
 		<div class="Info_contenido">
-			<Info />
-			<Info />
-			<Info />
+			<Info title="Relaciones" img="../img/relaciones.jpg" ref="#" />
+			<Info title="Intereses" img="../img/intereses.jpg" ref="#" />
+			<Info title="Mas" img="../img/basquet.jpeg" ref="#" />
 		</div>
 		<div class="Pie_contenido">
-			<div class="Pie_redes"></div>
-			<div class="Pie_autor"></div>
+			<div class="Pie_redes">
+				<ul>
+					<li><a href="#">Facebook</a></li>
+					<li><a href="#">Instagram</a></li>
+					<li><a href="#">Tiktok</a></li>
+				</ul>
+			</div>
+			<div class="Pie_autor">
+				<p>
+					Creditos a @Ludwig: Informacion reservada solo para dominio
+					personal.
+				</p>
+			</div>
 		</div>
 	</main>
 </Layout>
@@ -69,8 +89,39 @@ import Info from "../components/Info.astro";
 	.Frase_texto p {
 		color: #f2f2f2;
 		font-size: 22px;
-		font-weight: 600;
+		font-weight: 100;
 		text-align: center;
+	}
+
+	.Frase_texto p em {
+		font-size: 25px;
+		font-weight: 900;
+		transition-duration: 0.5s;
+	}
+
+	.Frase_texto p em:hover {
+		transition-duration: 0.5s;
+		font-size: 30px;
+	}
+
+	.Frase_texto p #caracteristica_1 {
+		color: #8758ff;
+	}
+
+	.Frase_texto p #caracteristica_2 {
+		color: #5cb8e4;
+	}
+
+	.Frase_texto p #caracteristica_3 {
+		color: #e22b2b;
+	}
+
+	.Frase_texto p #caracteristica_4 {
+		color: #77f4b8;
+	}
+
+	.Frase_texto p #caracteristica_5 {
+		color: #ffd900;
 	}
 
 	.Frase_contenido .Frase_texto {
@@ -78,8 +129,18 @@ import Info from "../components/Info.astro";
 	}
 
 	.Frase_contenido .Frase_texto img {
-		width: 50%;
-		height: 50%;
+	}
+
+	.Frase_imagen img {
+		transition-duration: 1s;
+		width: 75%;
+		height: 75%;
+	}
+
+	.Frase_imagen img:hover {
+		transition-duration: 1s;
+		width: 85%;
+		height: 85%;
 	}
 
 	/* Estilos Principal2 */
@@ -138,5 +199,19 @@ import Info from "../components/Info.astro";
 
 	.Pie_redes {
 		background-color: #8758ff;
+	}
+
+	.Pie_redes ul {
+		margin: 0px;
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		gap: 50px;
+		align-items: center;
+		height: 100%;
+	}
+
+	.Pie_autor p {
+		margin: 0px;
 	}
 </style>

@@ -1,10 +1,78 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cabezera from "../components/Cabezera.astro";
+import Card_Text from "../components/Card_Text.astro";
+import Card_Imagen from "../components/Card_Imagen.astro";
 ---
 
 <Layout title="Gustos">
     <main>
         <Cabezera />
+        <div class="contenido">
+            <div class="cards texto">
+                <Card_Text
+                    titulo="titulo"
+                    contenido="lorem ipsum"
+                    clase="uno"
+                />
+                <Card_Text
+                    titulo="titulo"
+                    contenido="lorem ipsum"
+                    clase="dos"
+                />
+                <Card_Text
+                    titulo="titulo"
+                    contenido="lorem ipsum"
+                    clase="tres"
+                />
+            </div>
+            <div class="cards imagenes">
+                <Card_Imagen imagen="#" clase="uno" />
+                <Card_Imagen imagen="#" clase="dos" />
+                <Card_Imagen imagen="#" clase="tres" />
+            </div>
+        </div>
     </main>
+    <script>
+        let cards1 = document.getElementsByClassName("card uno");
+        let cards2 = document.getElementsByClassName("card dos");
+        let cards3 = document.getElementsByClassName("card tres");
+        let carta_1_texto = cards1[0];
+        let carta_2_texto = cards2[0];
+        let carta_3_texto = cards3[0];
+        let carta_1_imagen = cards1[1];
+        let carta_2_imagen = cards2[1];
+        let carta_3_imagen = cards3[1];
+
+        carta_1_texto.addEventListener("click", () => {
+            let carta_actual = document.getElementsByClassName("card uno");
+            carta_actual[0].className = carta_1_texto.className;
+            carta_1_texto.className = "card uno";
+            carta_actual[1].className = carta_1_imagen.className;
+            carta_1_imagen.className = "card uno";
+        });
+
+        carta_2_texto.addEventListener("click", () => {
+            let carta_actual = document.getElementsByClassName("card uno");
+            carta_actual[0].className = carta_2_texto.className;
+            carta_2_texto.className = "card uno";
+            carta_actual[1].className = carta_2_imagen.className;
+            carta_2_imagen.className = "card uno";
+        });
+
+        carta_3_texto.addEventListener("click", () => {
+            let carta_actual = document.getElementsByClassName("card uno");
+            carta_actual[0].className = carta_3_texto.className;
+            carta_3_texto.className = "card uno";
+            carta_actual[1].className = carta_3_imagen.className;
+            carta_3_imagen.className = "card uno";
+        });
+    </script>
 </Layout>
+
+<style>
+    .contenido {
+        height: 640px;
+        position: relative;
+    }
+</style>

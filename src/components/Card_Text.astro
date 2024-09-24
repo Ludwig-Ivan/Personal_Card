@@ -1,0 +1,54 @@
+---
+interface Props {
+    titulo: string;
+    contenido: string;
+    clase: string;
+}
+
+const { titulo, contenido, clase } = Astro.props;
+---
+
+<div class={"card " + clase}>
+    <h3 class="title">{titulo}</h3>
+    <p class="content">{contenido}</p>
+</div>
+
+<style>
+    .card {
+        box-sizing: border-box;
+        height: 500px;
+        width: 380px;
+        border-radius: 20px;
+        padding: 30px;
+        position: absolute;
+        left: 10%;
+        top: 100px;
+        box-shadow: #000 1px 1px 30px;
+        transition-duration: 1s;
+    }
+
+    .card:hover {
+        transition-duration: 1s;
+        transform: rotate(5deg);
+        transform-origin: bottom right;
+    }
+
+    .uno {
+        left: 11%;
+        z-index: 3;
+        background-color: #8758ff;
+    }
+    .dos {
+        left: 12%;
+        z-index: 2;
+        background-color: #5cb8e4;
+    }
+    .tres {
+        left: 13%;
+        z-index: 1;
+        background-color: #f2f2f2;
+    }
+
+    .cuatro {
+    }
+</style>

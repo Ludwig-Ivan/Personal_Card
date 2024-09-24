@@ -1,0 +1,53 @@
+---
+interface Props {
+    imagen: string;
+    clase: string;
+}
+
+const { imagen, clase } = Astro.props;
+---
+
+<div class={"card " + clase}>
+    <img class="imagen" src={imagen} alt="imagen de un gusto" />
+</div>
+
+<style>
+    .card {
+        box-sizing: border-box;
+        height: 500px;
+        width: 380px;
+        background-color: #8758ff;
+        border-radius: 20px;
+        padding: 30px;
+        position: absolute;
+        right: 10%;
+        top: 100px;
+        box-shadow: #000 1px 1px 30px;
+        transition-duration: 1s;
+    }
+
+    .card:hover {
+        transition-duration: 1s;
+        transform: rotate(5deg);
+        transform-origin: bottom right;
+    }
+
+    .uno {
+        right: 13%;
+        z-index: 3;
+        background-color: #8758ff;
+    }
+    .dos {
+        right: 12%;
+        z-index: 2;
+        background-color: #5cb8e4;
+    }
+    .tres {
+        right: 11%;
+        z-index: 1;
+        background-color: #f2f2f2;
+    }
+
+    .cuatro {
+    }
+</style>

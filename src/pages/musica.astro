@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Cabezera from "../components/Cabezera.astro";
 import Vinilo from "../components/Vinilo.astro";
+
+let play_img = "icons/play.png";
 ---
 
 <Layout title="Musica">
@@ -9,10 +11,118 @@ import Vinilo from "../components/Vinilo.astro";
         <Cabezera />
         <div class="contenido">
             <div class="pila_vinilos">
-                <Vinilo img="img/Nirvana_logo.png" />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Smells_Like_Teen_Spirit.mp3"
+                />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/La_Cancion.mp3"
+                />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Chica_Paranormal.mp3"
+                />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Do_I_Wanna_Know.mp3"
+                />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Good_Shit_Happens.mp3"
+                />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Lil_Fish_Big_Pond.mp3"
+                />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Love_Is_a_Bitch.mp3"
+                />
+                <Vinilo img="img/Nirvana_logo.png" song="music/Redbone.mp3" />
+                <Vinilo img="img/Nirvana_logo.png" song="music/Six_Days.mp3" />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Daddy_Issues.mp3"
+                />
+            </div>
+            <div id="song_name"></div>
+            <div class="opc_rep">
+                <img
+                    class="opc"
+                    id="backward"
+                    src="icons/fast-backward.png"
+                    alt="anterior"
+                />
+                <img class="opc" id="play/pause" src={play_img} alt="despues" />
+                <img
+                    class="opc"
+                    id="forward"
+                    src="icons/fast-forward.png"
+                    alt="p/p"
+                />
             </div>
         </div>
     </main>
+    <script>
+        const backward = document.getElementById("backward");
+        const forward = document.getElementById("forward");
+        const play_pause = document.getElementById("play/pause");
+        const title = document.getElementById("song_name");
+        let song_name = [
+            "Smells Like Teen Spirit - Nirvana",
+            "La Cancion - Bad Bunny, J Balvin",
+            "Chica Paranormal - Paulo Londra",
+            "Do I Wanna Know - Artic Monkey",
+            "Good Shit Happens - Michael Frant & Spearhead",
+            "Lil Fish, Big Pond - Tobe Nwigwe",
+            "Love Is a Bitch - Two Feet",
+            "Redbone - Childish Gambino",
+            "Six_Days - Tokyo Drift",
+            "Daddy_Issues - The Neighbourhood",
+        ];
+        let cont = 0;
+        title.innerText = song_name[cont];
+
+        let ban = false;
+        let vinilo;
+        let play_btn;
+
+        //Evento encargado de pausar o activar la cancion
+        play_pause.addEventListener("click", (event) => {
+            vinilo = document.getElementsByClassName("vinilo")[cont];
+            if (!ban) {
+                event.target.src = "icons/pause.png";
+                play_btn = event.target;
+                vinilo.getElementsByTagName("audio")[0].play();
+                ban = true;
+            } else {
+                event.target.src = "icons/play.png";
+                vinilo.getElementsByTagName("audio")[0].pause();
+                ban = false;
+            }
+        });
+        //Evento encargado de retroceder a la anterior cancion
+        forward.addEventListener("click", () => {
+            if (cont < 9) {
+                cont++;
+                title.innerText = song_name[cont];
+                vinilo.getElementsByTagName("audio")[0].pause();
+                play_btn.src = "icons/play.png";
+                ban = false;
+            }
+        });
+        //Evento encargado de pasar a la siguiente cancion
+        backward.addEventListener("click", () => {
+            if (cont > 0) {
+                cont--;
+                title.innerText = song_name[cont];
+                vinilo.getElementsByTagName("audio")[0].pause();
+                play_btn.src = "icons/play.png";
+                ban = false;
+            }
+        });
+    </script>
 </Layout>
 
 <style>
@@ -20,8 +130,10 @@ import Vinilo from "../components/Vinilo.astro";
         height: 90vh;
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 20px;
     }
 
     main {
@@ -32,5 +144,27 @@ import Vinilo from "../components/Vinilo.astro";
         position: relative;
         height: 400px;
         width: 400px;
+    }
+
+    .opc_rep {
+        display: flex;
+        gap: 10vh;
+    }
+
+    .opc {
+        height: 70px;
+        width: 70px;
+        transition-duration: 0.5s;
+    }
+
+    .opc:hover {
+        transition-duration: 0.5s;
+        transform: scale(1.2);
+    }
+
+    #song_name {
+        font-size: 20px;
+        color: #f2f2f2;
+        font-weight: 900;
     }
 </style>

@@ -1,9 +1,10 @@
 ---
 interface Props {
     img: string;
+    song: string;
 }
 
-const { img } = Astro.props;
+const { img, song } = Astro.props;
 ---
 
 <div class="contenedor_vinilo">
@@ -11,23 +12,8 @@ const { img } = Astro.props;
         <img id="logo" src={img} alt="bandaimg" />
         <img id="disco" src="img/Vinilo.png" alt="disco vinilo" />
         <audio>
-            <source src="music/Chica_Paranormal.mp3" />
+            <source src={song} />
         </audio>
-        <script>
-            const vinilos = document.getElementsByClassName("vinilo");
-            const vinilo = vinilos[0];
-            let ban = false;
-
-            vinilo.addEventListener("click", () => {
-                if (!ban) {
-                    vinilo.getElementsByTagName("audio")[0].play();
-                    ban = true;
-                } else {
-                    vinilo.getElementsByTagName("audio")[0].pause();
-                    ban = false;
-                }
-            });
-        </script>
     </div>
 </div>
 

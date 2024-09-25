@@ -3,12 +3,13 @@ interface Props {
     titulo: string;
     contenido: string;
     clase: string;
+    color: string;
 }
 
-const { titulo, contenido, clase } = Astro.props;
+const { titulo, contenido, clase, color } = Astro.props;
 ---
 
-<div class={"card " + clase}>
+<div class={"card " + clase} style={{ backgroundColor: color }}>
     <h3 class="title">{titulo}</h3>
     <p class="content">{contenido}</p>
 </div>
@@ -22,7 +23,7 @@ const { titulo, contenido, clase } = Astro.props;
         padding: 30px;
         position: absolute;
         left: 10%;
-        top: 100px;
+        top: 6vh;
         box-shadow: #000 1px 1px 30px;
         transition-duration: 1s;
     }
@@ -33,20 +34,25 @@ const { titulo, contenido, clase } = Astro.props;
         transform-origin: bottom right;
     }
 
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
     .uno {
         left: 11%;
         z-index: 3;
-        background-color: #8758ff;
     }
     .dos {
         left: 12%;
         z-index: 2;
-        background-color: #5cb8e4;
     }
     .tres {
         left: 13%;
         z-index: 1;
-        background-color: #f2f2f2;
     }
 
     .cuatro {

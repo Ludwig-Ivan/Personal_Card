@@ -11,25 +11,32 @@ import Card_Imagen from "../components/Card_Imagen.astro";
         <div class="contenido">
             <div class="cards texto">
                 <Card_Text
-                    titulo="titulo"
-                    contenido="lorem ipsum"
+                    color="#8758ff"
+                    titulo="Titulo 1"
+                    contenido="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adofficiis earum cum, fugiat impedit totam pariatur liberopossimus veniam? Dolorem optio accusantium facere atarchitecto maxime quas in, iure aliquid!"
                     clase="uno"
                 />
                 <Card_Text
-                    titulo="titulo"
-                    contenido="lorem ipsum"
+                    color="#5cb8e4"
+                    titulo="Titulo 2"
+                    contenido="dolor sit amet consectetur adipisicing elit. Ad officiis earum cum, fugiat impedit totam pariatur libero possimus veniam? Dolorem optio accusantium facere at architecto maxime quas in, iure aliquid!"
                     clase="dos"
                 />
                 <Card_Text
-                    titulo="titulo"
-                    contenido="lorem ipsum"
+                    color="#f2f2f2"
+                    titulo="Titulo 3"
+                    contenido="dolor sit amet consectetur adipisicing elit. Ad officiis earum cum, fugiat impedit totam pariatur libero possimus veniam? Dolorem optio accusantium facere at architecto maxime quas in, iure aliquid!"
                     clase="tres"
                 />
             </div>
             <div class="cards imagenes">
-                <Card_Imagen imagen="#" clase="uno" />
-                <Card_Imagen imagen="#" clase="dos" />
-                <Card_Imagen imagen="#" clase="tres" />
+                <Card_Imagen
+                    imagen="../img/OIP.jpeg"
+                    clase="uno"
+                    color="#8758ff"
+                />
+                <Card_Imagen imagen="#" clase="dos" color="#5cb8e4" />
+                <Card_Imagen imagen="#" clase="tres" color="#f2f2f2" />
             </div>
         </div>
     </main>
@@ -72,7 +79,11 @@ import Card_Imagen from "../components/Card_Imagen.astro";
 
 <style>
     .contenido {
-        height: 640px;
+        height: 90vh;
         position: relative;
+    }
+
+    main {
+        background-color: #181818;
     }
 </style>

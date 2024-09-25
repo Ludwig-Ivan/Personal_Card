@@ -2,12 +2,13 @@
 interface Props {
     imagen: string;
     clase: string;
+    color: string;
 }
 
-const { imagen, clase } = Astro.props;
+const { imagen, clase, color } = Astro.props;
 ---
 
-<div class={"card " + clase}>
+<div class={"card " + clase} style={{ backgroundColor: color }}>
     <img class="imagen" src={imagen} alt="imagen de un gusto" />
 </div>
 
@@ -18,12 +19,17 @@ const { imagen, clase } = Astro.props;
         width: 380px;
         background-color: #8758ff;
         border-radius: 20px;
-        padding: 30px;
         position: absolute;
         right: 10%;
-        top: 100px;
+        top: 6vh;
         box-shadow: #000 1px 1px 30px;
         transition-duration: 1s;
+        overflow: hidden;
+    }
+
+    img {
+        height: 500px;
+        width: 380px;
     }
 
     .card:hover {

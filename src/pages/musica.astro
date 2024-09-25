@@ -1,12 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cabezera from "../components/Cabezera.astro";
+import Vinilo from "../components/Vinilo.astro";
 ---
 
-<Layout title="Gustos">
+<Layout title="Musica">
     <main>
         <Cabezera />
+        <div class="contenido">
+            <div class="pila_vinilos">
+                <Vinilo img="img/Nirvana_logo.png" />
+            </div>
+        </div>
     </main>
 </Layout>
 
-<style></style>
+<style>
+    .contenido {
+        height: 90vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main {
+        background-color: #181818;
+    }
+
+    .pila_vinilos {
+        position: relative;
+        height: 400px;
+        width: 400px;
+    }
+</style>

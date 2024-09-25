@@ -1,0 +1,68 @@
+---
+interface Props {
+    img: string;
+}
+
+const { img } = Astro.props;
+---
+
+<div class="contenedor_vinilo">
+    <div class="vinilo">
+        <img id="logo" src={img} alt="bandaimg" />
+        <img id="disco" src="img/Vinilo.png" alt="disco vinilo" />
+        <audio>
+            <source src="music/Chica_Paranormal.mp3" />
+        </audio>
+        <script>
+            const vinilos = document.getElementsByClassName("vinilo");
+            const vinilo = vinilos[0];
+            let ban = false;
+
+            vinilo.addEventListener("click", () => {
+                if (!ban) {
+                    vinilo.getElementsByTagName("audio")[0].play();
+                    ban = true;
+                } else {
+                    vinilo.getElementsByTagName("audio")[0].pause();
+                    ban = false;
+                }
+            });
+        </script>
+    </div>
+</div>
+
+<style>
+    #disco {
+        height: 400px;
+        width: 400px;
+    }
+
+    #logo {
+        height: 200px;
+        width: 200px;
+        border-radius: 200px;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .vinilo {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: giros 6s infinite;
+    }
+
+    @keyframes giros {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .contenedor_vinilo {
+        position: absolute;
+    }
+</style>

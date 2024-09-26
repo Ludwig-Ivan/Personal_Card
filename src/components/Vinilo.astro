@@ -2,12 +2,13 @@
 interface Props {
     img: string;
     song: string;
+    clase: string;
 }
-
-const { img, song } = Astro.props;
+// img res(393px x 393px)
+const { img, song, clase } = Astro.props;
 ---
 
-<div class="contenedor_vinilo">
+<div class={"contenedor_vinilo " + clase}>
     <div class="vinilo">
         <img id="logo" src={img} alt="bandaimg" />
         <img id="disco" src="img/Vinilo.png" alt="disco vinilo" />
@@ -36,7 +37,6 @@ const { img, song } = Astro.props;
         display: flex;
         justify-content: center;
         align-items: center;
-        animation: giros 6s infinite;
     }
 
     @keyframes giros {
@@ -50,5 +50,47 @@ const { img, song } = Astro.props;
 
     .contenedor_vinilo {
         position: absolute;
+    }
+
+    .uno {
+        z-index: 39;
+        animation: giros 6s infinite;
+    }
+
+    .dos {
+        z-index: 38;
+        left: 15px;
+    }
+    .tres {
+        z-index: 37;
+        left: 30px;
+    }
+    .cuatro {
+        z-index: 36;
+        left: 45px;
+    }
+    .cinco {
+        z-index: 35;
+        left: 60px;
+    }
+    .seis {
+        z-index: 34;
+        left: 75px;
+    }
+    .siete {
+        z-index: 33;
+        left: 90px;
+    }
+    .ocho {
+        z-index: 32;
+        left: 105px;
+    }
+    .nueve {
+        z-index: 31;
+        left: 120px;
+    }
+    .diez {
+        z-index: 30;
+        rigth: 135px;
     }
 </style>

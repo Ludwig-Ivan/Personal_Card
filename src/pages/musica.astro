@@ -14,36 +14,52 @@ let play_img = "icons/play.png";
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/Smells_Like_Teen_Spirit.mp3"
+                    clase="uno"
                 />
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/La_Cancion.mp3"
+                    clase="dos"
                 />
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/Chica_Paranormal.mp3"
+                    clase="tres"
                 />
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/Do_I_Wanna_Know.mp3"
+                    clase="cuatro"
                 />
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/Good_Shit_Happens.mp3"
+                    clase="cinco"
                 />
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/Lil_Fish_Big_Pond.mp3"
+                    clase="seis"
                 />
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/Love_Is_a_Bitch.mp3"
+                    clase="siete"
                 />
-                <Vinilo img="img/Nirvana_logo.png" song="music/Redbone.mp3" />
-                <Vinilo img="img/Nirvana_logo.png" song="music/Six_Days.mp3" />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Redbone.mp3"
+                    clase="ocho"
+                />
+                <Vinilo
+                    img="img/Nirvana_logo.png"
+                    song="music/Six_Days.mp3"
+                    clase="nueve"
+                />
                 <Vinilo
                     img="img/Nirvana_logo.png"
                     song="music/Daddy_Issues.mp3"
+                    clase="diez"
                 />
             </div>
             <div id="song_name"></div>
@@ -85,20 +101,83 @@ let play_img = "icons/play.png";
         title.innerText = song_name[cont];
 
         let ban = false;
-        let vinilo;
-        let play_btn;
+        let vinilo = document.getElementsByClassName("vinilo")[0];
+        let play_btn = document.getElementById("play/pause");
+        let audio = document
+            .querySelector(".contenedor_vinilo")
+            .querySelector(".vinilo")
+            .querySelector("audio");
+
+        //Funcion encargada del reacomodo de clases
+        function Reacomodo() {
+            let vinilos = document.querySelectorAll(".contenedor_vinilo");
+            for (let index = 0; index < vinilos.length; index++) {
+                vinilos[index].className =
+                    "contenedor_vinilo " +
+                    [
+                        "uno",
+                        "dos",
+                        "tres",
+                        "cuatro",
+                        "cinco",
+                        "seis",
+                        "siete",
+                        "ocho",
+                        "nueve",
+                        "diez",
+                    ][index];
+            }
+            audio = document
+                .querySelector(".contenedor_vinilo")
+                .querySelector(".vinilo")
+                .querySelector("audio");
+        }
+
+        //Funcion encargada del cambio de clase siguiente
+        const Cambio_Next = () => {
+            let vinilos = document.querySelectorAll(".contenedor_vinilo");
+            let vinilo_act = [...vinilos];
+            let pila_vinilos = document.querySelector(".pila_vinilos");
+
+            pila_vinilos.removeChild;
+
+            vinilo_act.push(vinilo_act.shift());
+
+            vinilo_act.forEach((vinilo) => {
+                pila_vinilos.appendChild(vinilo);
+            });
+
+            Reacomodo();
+        };
+
+        //Funcion encargada del cambio de clase anterior
+        const Cambio_Back = () => {
+            let vinilos = document.querySelectorAll(".contenedor_vinilo");
+            let vinilo_act = [...vinilos];
+            let pila_vinilos = document.querySelector(".pila_vinilos");
+
+            pila_vinilos.removeChild;
+
+            vinilo_act.unshift(vinilo_act.pop());
+
+            vinilo_act.forEach((vinilo) => {
+                pila_vinilos.appendChild(vinilo);
+            });
+
+            Reacomodo();
+        };
 
         //Evento encargado de pausar o activar la cancion
         play_pause.addEventListener("click", (event) => {
-            vinilo = document.getElementsByClassName("vinilo")[cont];
+            vinilo = document.querySelector(".contenedor_vinilo");
             if (!ban) {
-                event.target.src = "icons/pause.png";
-                play_btn = event.target;
-                vinilo.getElementsByTagName("audio")[0].play();
+                play_btn.src = "icons/pause.png";
+                //vinilo.childNodes[1].childNodes[5].play();
+                vinilo.querySelector(".vinilo").querySelector("audio").play();
                 ban = true;
             } else {
-                event.target.src = "icons/play.png";
-                vinilo.getElementsByTagName("audio")[0].pause();
+                play_btn.src = "icons/play.png";
+                vinilo.querySelector(".vinilo").querySelector("audio").pause();
                 ban = false;
             }
         });
@@ -107,9 +186,11 @@ let play_img = "icons/play.png";
             if (cont < 9) {
                 cont++;
                 title.innerText = song_name[cont];
-                vinilo.getElementsByTagName("audio")[0].pause();
+                if (!vinilo.getElementsByTagName("audio")[0].paused)
+                    vinilo.getElementsByTagName("audio")[0].pause();
                 play_btn.src = "icons/play.png";
                 ban = false;
+                Cambio_Next();
             }
         });
         //Evento encargado de pasar a la siguiente cancion
@@ -117,10 +198,17 @@ let play_img = "icons/play.png";
             if (cont > 0) {
                 cont--;
                 title.innerText = song_name[cont];
-                vinilo.getElementsByTagName("audio")[0].pause();
+                if (!vinilo.getElementsByTagName("audio")[0].paused)
+                    vinilo.getElementsByTagName("audio")[0].pause();
                 play_btn.src = "icons/play.png";
                 ban = false;
+                Cambio_Back();
             }
+        });
+
+        //funcion para cambiar el icono cuando se termina la cancion (pendiente)
+        audio.addEventListener("ended", () => {
+            play_btn.src = "icons/play.png";
         });
     </script>
 </Layout>
@@ -144,6 +232,7 @@ let play_img = "icons/play.png";
         position: relative;
         height: 400px;
         width: 400px;
+        margin-right: 15vh;
     }
 
     .opc_rep {

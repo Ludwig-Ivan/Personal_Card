@@ -67,14 +67,14 @@ let play_img = "/Persona_Card/icons/play.png";
                 <img
                     class="opc"
                     id="backward"
-                    src="/Persona_Card/icons/fast-backward.png"
+                    src="icons/fast-backward.png"
                     alt="anterior"
                 />
                 <img class="opc" id="play/pause" src={play_img} alt="despues" />
                 <img
                     class="opc"
                     id="forward"
-                    src="/Persona_Card/icons/fast-forward.png"
+                    src="/Persona_Card/public/icons/fast-forward.png"
                     alt="p/p"
                 />
             </div>
@@ -216,7 +216,7 @@ let play_img = "/Persona_Card/icons/play.png";
                 title.innerText = song_name[cont];
                 if (!vinilo.getElementsByTagName("audio")[0].paused)
                     vinilo.getElementsByTagName("audio")[0].pause();
-                play_btn.src = "/Persona_Card/icons/play.png";
+                play_btn.src = "/Persona_Card/public/icons/play.png";
                 ban = false;
                 Cambio_Back();
                 const play = new Event("click");

@@ -17,47 +17,47 @@ let play_img = "icons/play.png";
                     clase="uno"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Oasis.jpg"
                     song="music/La_Cancion.mp3"
                     clase="dos"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Chica_Paranormal.jpg"
                     song="music/Chica_Paranormal.mp3"
                     clase="tres"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Do_I_Wanna_Know.jpeg"
                     song="music/Do_I_Wanna_Know.mp3"
                     clase="cuatro"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Good_Shit_Happens.jpg"
                     song="music/Good_Shit_Happens.mp3"
                     clase="cinco"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Tobe_Nwigwe.jpeg"
                     song="music/Lil_Fish_Big_Pond.mp3"
                     clase="seis"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Two_Feet.jpg"
                     song="music/Love_Is_a_Bitch.mp3"
                     clase="siete"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Redbone.jpeg"
                     song="music/Redbone.mp3"
                     clase="ocho"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/Tokio_Drift.jpeg"
                     song="music/Six_Days.mp3"
                     clase="nueve"
                 />
                 <Vinilo
-                    img="img/Nirvana_logo.png"
+                    img="img/The_Neighbourhood.jpeg"
                     song="music/Daddy_Issues.mp3"
                     clase="diez"
                 />
@@ -94,8 +94,8 @@ let play_img = "icons/play.png";
             "Lil Fish, Big Pond - Tobe Nwigwe",
             "Love Is a Bitch - Two Feet",
             "Redbone - Childish Gambino",
-            "Six_Days - Tokyo Drift",
-            "Daddy_Issues - The Neighbourhood",
+            "Six Days - Tokyo Drift",
+            "Daddy Issues - The Neighbourhood",
         ];
         let cont = 0;
         title.innerText = song_name[cont];
@@ -127,10 +127,6 @@ let play_img = "icons/play.png";
                         "diez",
                     ][index];
             }
-            audio = document
-                .querySelector(".contenedor_vinilo")
-                .querySelector(".vinilo")
-                .querySelector("audio");
         }
 
         //Funcion encargada del cambio de clase siguiente
@@ -168,11 +164,10 @@ let play_img = "icons/play.png";
         };
 
         //Evento encargado de pausar o activar la cancion
-        play_pause.addEventListener("click", (event) => {
+        play_pause.addEventListener("click", () => {
             vinilo = document.querySelector(".contenedor_vinilo");
             if (!ban) {
                 play_btn.src = "icons/pause.png";
-                //vinilo.childNodes[1].childNodes[5].play();
                 vinilo.querySelector(".vinilo").querySelector("audio").play();
                 ban = true;
             } else {
@@ -180,17 +175,38 @@ let play_img = "icons/play.png";
                 vinilo.querySelector(".vinilo").querySelector("audio").pause();
                 ban = false;
             }
+            audio = document
+                .querySelector(".contenedor_vinilo")
+                .querySelector(".vinilo")
+                .querySelector("audio");
+
+            audio.addEventListener("ended", () => {
+                console.log("cambio");
+                play_btn.src = "icons/play.png";
+
+                //Lanzo el evento click para forward
+                const next = new Event("click");
+                forward.dispatchEvent(next);
+            });
         });
         //Evento encargado de retroceder a la anterior cancion
         forward.addEventListener("click", () => {
             if (cont < 9) {
+                const vinilo_animated =
+                    document.querySelector(".contenedor_vinilo");
+                vinilo_animated.style.visibility = "hidden";
+
                 cont++;
                 title.innerText = song_name[cont];
                 if (!vinilo.getElementsByTagName("audio")[0].paused)
                     vinilo.getElementsByTagName("audio")[0].pause();
                 play_btn.src = "icons/play.png";
                 ban = false;
+
                 Cambio_Next();
+
+                const play = new Event("click");
+                play_pause.dispatchEvent(play);
             }
         });
         //Evento encargado de pasar a la siguiente cancion
@@ -203,12 +219,13 @@ let play_img = "icons/play.png";
                 play_btn.src = "icons/play.png";
                 ban = false;
                 Cambio_Back();
+                const play = new Event("click");
+                play_pause.dispatchEvent(play);
             }
-        });
 
-        //funcion para cambiar el icono cuando se termina la cancion (pendiente)
-        audio.addEventListener("ended", () => {
-            play_btn.src = "icons/play.png";
+            const vinilo_animated =
+                document.querySelector(".contenedor_vinilo");
+            vinilo_animated.style.visibility = "visible";
         });
     </script>
 </Layout>

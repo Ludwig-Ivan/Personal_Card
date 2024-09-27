@@ -30,26 +30,58 @@ import Info from "../components/Info.astro";
 		<div class="Personal_contenido">
 			<div class="Personal_recuadro">
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Cupiditate, reprehenderit! Reprehenderit quia, similique
-					beatae labore dolores odit corporis blanditiis recusandae
-					quos illum. Hic, perspiciatis. Sunt et vel eius provident
-					sint.
+					Ser <em>RESPONSABLE</em> significa cumplir con compromisos de
+					manera efectiva. El <em>RESPETO</em> es otro valor clave, ya
+					que tratas de aceptar a los demás tal como son, sin prejuicios
+					y fomentando una convivencia armoniosa. La <em
+						>SINCERIDAD</em
+					> también es crucial, pues la honestidad es la base para establecer
+					buenas relaciones.
+					<br /><br />Además, la <em>PACIENCIA</em>, es lo que ayuda a
+					mantener la calma y perseverar ante los desafíos.
+					Finalmente, la
+					<em>EMPATIA</em> es algo de un valor profundo, ya que permite
+					entender y conectar mejor con las emociones de las demas personas.
 				</p>
-				<img src="#" alt="Imagen Identificativa" />
+				<img src="img/Flor.png" alt="Imagen Identificativa" />
 			</div>
 		</div>
 		<div class="Info_contenido">
-			<Info title="Relaciones" img="../img/relaciones.jpg" ref="#" />
-			<Info title="Intereses" img="../img/intereses.jpg" ref="#" />
-			<Info title="Mas" img="../img/basquet.jpeg" ref="#" />
+			<Info title="Cupon" img="img/Cupon.webp" ref="/cupon" />
+			<Info title="..." img="img/puntos.jpeg" ref="/puntos" />
+			<Info title="¿Quieres mas?" img="img/Mas.png" ref="/mas" />
 		</div>
 		<div class="Pie_contenido">
 			<div class="Pie_redes">
 				<ul>
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">Instagram</a></li>
-					<li><a href="#">Tiktok</a></li>
+					<li>
+						<a
+							class="redes"
+							href="https://www.facebook.com/profile.php?id=100037348455205&mibextid=LQQJ4d"
+							><img
+								class="icons"
+								src="icons/facebook.png"
+							/>Facebook</a
+						>
+					</li>
+					<li>
+						<a
+							class="redes"
+							href="https://www.instagram.com/metzliggc._.08?igsh=MTh5emo2OGp3ZHRvOQ=="
+							><img
+								class="icons"
+								src="icons/instagram.png"
+							/>Instagram</a
+						>
+					</li>
+					<li>
+						<a class="redes" href="#"
+							><img
+								class="icons"
+								src="icons/tiktok.png"
+							/>Tiktok</a
+						>
+					</li>
 				</ul>
 			</div>
 			<div class="Pie_autor">
@@ -170,9 +202,40 @@ import Info from "../components/Info.astro";
 		font-weight: 600;
 	}
 
+	.Personal_recuadro p em {
+		font-weight: 900;
+		animation: colorChange 3s infinite;
+		font-style: normal;
+	}
+
+	.Personal_recuadro p em:hover {
+		font-weight: 900;
+		font-style: normal;
+		font-size: 25px;
+		transition-duration: 2s;
+	}
+
 	.Personal_contenido .Personal_recuadro img {
-		height: 250px;
-		width: 250px;
+		height: 450px;
+		width: 450px;
+	}
+
+	@keyframes colorChange {
+		0% {
+			color: red;
+		}
+		25% {
+			color: blue;
+		}
+		50% {
+			color: rgb(255, 255, 255);
+		}
+		75% {
+			color: orange;
+		}
+		100% {
+			color: red;
+		}
 	}
 
 	/* Estilos Principal3 */
@@ -187,14 +250,14 @@ import Info from "../components/Info.astro";
 
 	/* Estilos Principal4 */
 	.Pie_contenido {
-		height: 259px;
+		height: 200px;
 		background-color: #181818;
 	}
 
 	.Pie_redes,
 	.Pie_autor {
 		background-color: #5cb8e4;
-		height: 50%;
+		height: 100px;
 	}
 
 	.Pie_redes {
@@ -213,5 +276,22 @@ import Info from "../components/Info.astro";
 
 	.Pie_autor p {
 		margin: 0px;
+	}
+
+	.Pie_autor {
+		display: flex;
+		align-items: center;
+		padding: 0px 30px;
+	}
+
+	.icons {
+		height: 30px;
+		width: 30px;
+	}
+
+	.redes {
+		display: flex;
+		align-items: center;
+		gap: 15px;
 	}
 </style>

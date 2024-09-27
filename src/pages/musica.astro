@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Cabezera from "../components/Cabezera.astro";
 import Vinilo from "../components/Vinilo.astro";
 
-let play_img = "icons/play.png";
+let play_img = "/Persona_Card/icons/play.png";
 ---
 
 <Layout title="Musica">
@@ -12,53 +12,53 @@ let play_img = "icons/play.png";
         <div class="contenido">
             <div class="pila_vinilos">
                 <Vinilo
-                    img="img/Nirvana_logo.png"
-                    song="music/Smells_Like_Teen_Spirit.mp3"
+                    img="/Persona_Card/img/Nirvana_logo.png"
+                    song="/Persona_Card/music/Smells_Like_Teen_Spirit.mp3"
                     clase="uno"
                 />
                 <Vinilo
-                    img="img/Oasis.jpg"
-                    song="music/La_Cancion.mp3"
+                    img="/Persona_Card/img/Oasis.jpg"
+                    song="/Persona_Card/music/La_Cancion.mp3"
                     clase="dos"
                 />
                 <Vinilo
-                    img="img/Chica_Paranormal.jpg"
-                    song="music/Chica_Paranormal.mp3"
+                    img="/Persona_Card/img/Chica_Paranormal.jpg"
+                    song="/Persona_Card/music/Chica_Paranormal.mp3"
                     clase="tres"
                 />
                 <Vinilo
-                    img="img/Do_I_Wanna_Know.jpeg"
-                    song="music/Do_I_Wanna_Know.mp3"
+                    img="/Persona_Card/img/Do_I_Wanna_Know.jpeg"
+                    song="/Persona_Card/music/Do_I_Wanna_Know.mp3"
                     clase="cuatro"
                 />
                 <Vinilo
-                    img="img/Good_Shit_Happens.jpg"
-                    song="music/Good_Shit_Happens.mp3"
+                    img="/Persona_Card/img/Good_Shit_Happens.jpg"
+                    song="/Persona_Card/music/Good_Shit_Happens.mp3"
                     clase="cinco"
                 />
                 <Vinilo
-                    img="img/Tobe_Nwigwe.jpeg"
-                    song="music/Lil_Fish_Big_Pond.mp3"
+                    img="/Persona_Card/img/Tobe_Nwigwe.jpeg"
+                    song="/Persona_Card/music/Lil_Fish_Big_Pond.mp3"
                     clase="seis"
                 />
                 <Vinilo
-                    img="img/Two_Feet.jpg"
-                    song="music/Love_Is_a_Bitch.mp3"
+                    img="/Persona_Card/img/Two_Feet.jpg"
+                    song="/Persona_Card/music/Love_Is_a_Bitch.mp3"
                     clase="siete"
                 />
                 <Vinilo
-                    img="img/Redbone.jpeg"
-                    song="music/Redbone.mp3"
+                    img="/Persona_Card/img/Redbone.jpeg"
+                    song="/Persona_Card/music/Redbone.mp3"
                     clase="ocho"
                 />
                 <Vinilo
-                    img="img/Tokio_Drift.jpeg"
-                    song="music/Six_Days.mp3"
+                    img="/Persona_Card/img/Tokio_Drift.jpeg"
+                    song="/Persona_Card/music/Six_Days.mp3"
                     clase="nueve"
                 />
                 <Vinilo
-                    img="img/The_Neighbourhood.jpeg"
-                    song="music/Daddy_Issues.mp3"
+                    img="/Persona_Card/img/The_Neighbourhood.jpeg"
+                    song="/Persona_Card/music/Daddy_Issues.mp3"
                     clase="diez"
                 />
             </div>
@@ -67,14 +67,14 @@ let play_img = "icons/play.png";
                 <img
                     class="opc"
                     id="backward"
-                    src="icons/fast-backward.png"
+                    src="/Persona_Card/icons/fast-backward.png"
                     alt="anterior"
                 />
                 <img class="opc" id="play/pause" src={play_img} alt="despues" />
                 <img
                     class="opc"
                     id="forward"
-                    src="icons/fast-forward.png"
+                    src="/Persona_Card/icons/fast-forward.png"
                     alt="p/p"
                 />
             </div>
@@ -167,11 +167,11 @@ let play_img = "icons/play.png";
         play_pause.addEventListener("click", () => {
             vinilo = document.querySelector(".contenedor_vinilo");
             if (!ban) {
-                play_btn.src = "icons/pause.png";
+                play_btn.src = "/Persona_Card/icons/pause.png";
                 vinilo.querySelector(".vinilo").querySelector("audio").play();
                 ban = true;
             } else {
-                play_btn.src = "icons/play.png";
+                play_btn.src = "/Persona_Card/icons/play.png";
                 vinilo.querySelector(".vinilo").querySelector("audio").pause();
                 ban = false;
             }
@@ -182,7 +182,7 @@ let play_img = "icons/play.png";
 
             audio.addEventListener("ended", () => {
                 console.log("cambio");
-                play_btn.src = "icons/play.png";
+                play_btn.src = "/Persona_Card/icons/play.png";
 
                 //Lanzo el evento click para forward
                 const next = new Event("click");
@@ -200,7 +200,7 @@ let play_img = "icons/play.png";
                 title.innerText = song_name[cont];
                 if (!vinilo.getElementsByTagName("audio")[0].paused)
                     vinilo.getElementsByTagName("audio")[0].pause();
-                play_btn.src = "icons/play.png";
+                play_btn.src = "/Persona_Card/icons/play.png";
                 ban = false;
 
                 Cambio_Next();
@@ -216,7 +216,7 @@ let play_img = "icons/play.png";
                 title.innerText = song_name[cont];
                 if (!vinilo.getElementsByTagName("audio")[0].paused)
                     vinilo.getElementsByTagName("audio")[0].pause();
-                play_btn.src = "icons/play.png";
+                play_btn.src = "/Persona_Card/icons/play.png";
                 ban = false;
                 Cambio_Back();
                 const play = new Event("click");

@@ -4,14 +4,16 @@ interface Props {
     song: string;
     clase: string;
 }
-// img res(393px x 393px)
+import { vinilos_img } from "../js/links.js";
+
+const { vinilo_img } = vinilos_img;
 const { img, song, clase } = Astro.props;
 ---
 
 <div class={"contenedor_vinilo " + clase}>
     <div class="vinilo">
         <img id="logo" src={img} alt="bandaimg" />
-        <img id="disco" src="../img/Vinilo.png" alt="disco vinilo" />
+        <img id="disco" src={vinilo_img} alt="disco vinilo" />
         <audio>
             <source src={song} />
         </audio>

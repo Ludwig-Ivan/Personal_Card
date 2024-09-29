@@ -2,8 +2,35 @@
 import Layout from "../layouts/Layout.astro";
 import Cabezera from "../components/Cabezera.astro";
 import Vinilo from "../components/Vinilo.astro";
+import { vinilos_img, vinilos_music, recursos_extra } from "../js/links.js";
 
-let play_img = "../icons/play.png";
+const {
+    nirvana_logo,
+    oasis_logo,
+    chica_paranormal_logo,
+    do_i_wanna_know_logo,
+    let_i_happen_logo,
+    tobe_nwigwe_logo,
+    two_feet_logo,
+    redbone_logo,
+    tokio_drift_logo,
+    the_neighbourhood_logo,
+} = vinilos_img;
+
+const {
+    nirvana_mp3,
+    oasis_mp3,
+    chica_paranormal_mp3,
+    do_i_wanna_know_mp3,
+    let_i_happen_mp3,
+    tobe_nwigwe_mp3,
+    two_feet_mp3,
+    redbone_mp3,
+    tokio_drift_mp3,
+    the_neighbourhood_mp3,
+} = vinilos_music;
+
+const { play_img, pause_img, forward_img, backward_img } = recursos_extra;
 ---
 
 <Layout title="Musica">
@@ -11,54 +38,38 @@ let play_img = "../icons/play.png";
         <Cabezera />
         <div class="contenido">
             <div class="pila_vinilos">
+                <Vinilo img={nirvana_logo} song={nirvana_mp3} clase="uno" />
+                <Vinilo img={oasis_logo} song={oasis_mp3} clase="dos" />
                 <Vinilo
-                    img="../img/Nirvana_logo.png"
-                    song="../music/Smells_Like_Teen_Spirit.mp3"
-                    clase="uno"
-                />
-                <Vinilo
-                    img="../img/Oasis.jpg"
-                    song="../music/La_Cancion.mp3"
-                    clase="dos"
-                />
-                <Vinilo
-                    img="../img/Chica_Paranormal.jpg"
-                    song="../music/Chica_Paranormal.mp3"
+                    img={chica_paranormal_logo}
+                    song={chica_paranormal_mp3}
                     clase="tres"
                 />
                 <Vinilo
-                    img="../img/Do_I_Wanna_Know.jpeg"
-                    song="../music/Do_I_Wanna_Know.mp3"
+                    img={do_i_wanna_know_logo}
+                    song={do_i_wanna_know_mp3}
                     clase="cuatro"
                 />
                 <Vinilo
-                    img="../img/Let_It_Happen.jpg"
-                    song="../music/Let_It_Happen.mp3"
+                    img={let_i_happen_logo}
+                    song={let_i_happen_mp3}
                     clase="cinco"
                 />
                 <Vinilo
-                    img="../img/Tobe_Nwigwe.jpeg"
-                    song="../music/Lil_Fish_Big_Pond.mp3"
+                    img={tobe_nwigwe_logo}
+                    song={tobe_nwigwe_mp3}
                     clase="seis"
                 />
+                <Vinilo img={two_feet_logo} song={two_feet_mp3} clase="siete" />
+                <Vinilo img={redbone_logo} song={redbone_mp3} clase="ocho" />
                 <Vinilo
-                    img="../img/Two_Feet.jpg"
-                    song="../music/Love_Is_a_Bitch.mp3"
-                    clase="siete"
-                />
-                <Vinilo
-                    img="../img/Redbone.jpeg"
-                    song="../music/Redbone.mp3"
-                    clase="ocho"
-                />
-                <Vinilo
-                    img="../img/Tokio_Drift.jpeg"
-                    song="../music/Six_Days.mp3"
+                    img={tokio_drift_logo}
+                    song={tokio_drift_mp3}
                     clase="nueve"
                 />
                 <Vinilo
-                    img="../img/The_Neighbourhood.jpeg"
-                    song="../music/Daddy_Issues.mp3"
+                    img={the_neighbourhood_logo}
+                    song={the_neighbourhood_mp3}
                     clase="diez"
                 />
             </div>
@@ -67,16 +78,11 @@ let play_img = "../icons/play.png";
                 <img
                     class="opc"
                     id="backward"
-                    src="../icons/fast-backward.png"
+                    src={backward_img}
                     alt="anterior"
                 />
-                <img class="opc" id="play/pause" src={play_img} alt="despues" />
-                <img
-                    class="opc"
-                    id="forward"
-                    src="../icons/fast-forward.png"
-                    alt="p/p"
-                />
+                <img class="opc" id="play/pause" src={play_img} alt="p/p" />
+                <img class="opc" id="forward" src={forward_img} alt="despues" />
             </div>
         </div>
     </main>

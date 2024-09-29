@@ -1,3 +1,3 @@
-const url = false ? '../' : '';
+const url = true ? '../' : '';
 
 export default url;

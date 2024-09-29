@@ -1,4 +1,4 @@
-const url = false ? '../' : '';
+import url from "./url";
 
 const nirvana_logo = url + "img/Nirvana_logo.png";
 const oasis_logo = url + "img/Oasis.jpg";

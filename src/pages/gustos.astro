@@ -3,6 +3,20 @@ import Layout from "../layouts/Layout.astro";
 import Cabezera from "../components/Cabezera.astro";
 import Card_Text from "../components/Card_Text.astro";
 import Card_Imagen from "../components/Card_Imagen.astro";
+import { gustos_img, colors } from "../js/links.js";
+
+const {
+    dibujar_img,
+    futbol_img,
+    basquet_img,
+    breakin_bad_img,
+    maldicion_hill_house,
+    rosario_tijeras_img,
+    messi_img,
+    ayanokoyi_img,
+} = gustos_img;
+
+const { morado, azul, blanco } = colors;
 ---
 
 <Layout title="Gustos">
@@ -11,190 +25,79 @@ import Card_Imagen from "../components/Card_Imagen.astro";
         <div class="contenido">
             <div class="cards texto">
                 <Card_Text
-                    color="#8758ff"
+                    color={morado}
                     titulo="Dibujar"
                     contenido="!!Le gusta dibujar y se le increiblemente bien!!"
                     clase="uno"
                 />
                 <Card_Text
-                    color="#5cb8e4"
+                    color={azul}
                     titulo="Futbol"
                     contenido="Si adora a Messi, como no le va a gustar el futbol??"
                     clase="dos"
                 />
                 <Card_Text
-                    color="#f2f2f2"
+                    color={blanco}
                     titulo="Basquet"
                     contenido="Vaya caja de sorpresas!, le gusta tambien el basquet"
                     clase="tres"
                 />
                 <Card_Text
-                    color="#8758ff"
+                    color={morado}
                     titulo="Breaking Bad"
                     contenido="Mmm... Drogas? Todo bien en casa?"
                     clase="cuatro"
                 />
                 <Card_Text
-                    color="#5cb8e4"
+                    color={azul}
                     titulo="Rosario Tijeras"
                     contenido="El narcotrafico y la delincuencia a todo esplendor y emocion, quien no veria eso?"
                     clase="cinco"
                 />
                 <Card_Text
-                    color="#f2f2f2"
+                    color={blanco}
                     titulo="La maldición de hill house"
                     contenido="Una casa embrujada y fantasmas?? lo suficiente para llamar a un sacerdote para que haga su magia"
                     clase="seis"
                 />
                 <Card_Text
-                    color="#8758ff"
+                    color={morado}
                     titulo="Messi"
                     contenido="SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU! jajaja"
                     clase="siete"
                 />
                 <Card_Text
-                    color="#5cb8e4"
+                    color={azul}
                     titulo="Ayanokoji"
                     contenido="Cuenta como amor platonico??"
                     clase="ocho"
                 />
             </div>
             <div class="cards imagenes">
+                <Card_Imagen imagen={dibujar_img} clase="uno" color={morado} />
+                <Card_Imagen imagen={futbol_img} clase="dos" color={azul} />
+                <Card_Imagen imagen={basquet_img} clase="tres" color={blanco} />
                 <Card_Imagen
-                    imagen="../img/Dibujar.jpeg"
-                    clase="uno"
-                    color="#8758ff"
-                />
-                <Card_Imagen
-                    imagen="../img/futbol.jpeg"
-                    clase="dos"
-                    color="#5cb8e4"
-                />
-                <Card_Imagen
-                    imagen="../img/basquet.jpeg"
-                    clase="tres"
-                    color="#f2f2f2"
-                />
-                <Card_Imagen
-                    imagen="../img/Breaking_Bad.webp"
+                    imagen={breakin_bad_img}
                     clase="cuatro"
-                    color="#f2f2f2"
+                    color={morado}
                 />
                 <Card_Imagen
-                    imagen="../img/Rosario_Tijeras.jpg"
+                    imagen={rosario_tijeras_img}
                     clase="cinco"
-                    color="#f2f2f2"
+                    color={azul}
                 />
                 <Card_Imagen
-                    imagen="../img/Maldicion_Hill_house.png"
+                    imagen={maldicion_hill_house}
                     clase="seis"
-                    color="#f2f2f2"
+                    color={blanco}
                 />
-                <Card_Imagen
-                    imagen="../img/Messi.jpeg"
-                    clase="siete"
-                    color="#f2f2f2"
-                />
-                <Card_Imagen
-                    imagen="../img/Ayanokoji.jpeg"
-                    clase="ocho"
-                    color="#f2f2f2"
-                />
+                <Card_Imagen imagen={messi_img} clase="siete" color={morado} />
+                <Card_Imagen imagen={ayanokoyi_img} clase="ocho" color={azul} />
             </div>
         </div>
     </main>
-    <script>
-        let cards1 = document.getElementsByClassName("card uno");
-        let cards2 = document.getElementsByClassName("card dos");
-        let cards3 = document.getElementsByClassName("card tres");
-        let cards4 = document.getElementsByClassName("card cuatro");
-        let cards5 = document.getElementsByClassName("card cinco");
-        let cards6 = document.getElementsByClassName("card seis");
-        let cards7 = document.getElementsByClassName("card siete");
-        let cards8 = document.getElementsByClassName("card ocho");
-
-        let carta_1_texto = cards1[0];
-        let carta_2_texto = cards2[0];
-        let carta_3_texto = cards3[0];
-        let carta_4_texto = cards4[0];
-        let carta_5_texto = cards5[0];
-        let carta_6_texto = cards6[0];
-        let carta_7_texto = cards7[0];
-        let carta_8_texto = cards8[0];
-
-        let carta_1_imagen = cards1[1];
-        let carta_2_imagen = cards2[1];
-        let carta_3_imagen = cards3[1];
-        let carta_4_imagen = cards4[1];
-        let carta_5_imagen = cards5[1];
-        let carta_6_imagen = cards6[1];
-        let carta_7_imagen = cards7[1];
-        let carta_8_imagen = cards8[1];
-
-        carta_1_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_1_texto.className;
-            carta_1_texto.className = "card uno";
-            carta_actual[1].className = carta_1_imagen.className;
-            carta_1_imagen.className = "card uno";
-        });
-
-        carta_2_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_2_texto.className;
-            carta_2_texto.className = "card uno";
-            carta_actual[1].className = carta_2_imagen.className;
-            carta_2_imagen.className = "card uno";
-        });
-
-        carta_3_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_3_texto.className;
-            carta_3_texto.className = "card uno";
-            carta_actual[1].className = carta_3_imagen.className;
-            carta_3_imagen.className = "card uno";
-        });
-
-        carta_4_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_4_texto.className;
-            carta_4_texto.className = "card uno";
-            carta_actual[1].className = carta_4_imagen.className;
-            carta_4_imagen.className = "card uno";
-        });
-
-        carta_5_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_5_texto.className;
-            carta_5_texto.className = "card uno";
-            carta_actual[1].className = carta_5_imagen.className;
-            carta_5_imagen.className = "card uno";
-        });
-
-        carta_6_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_6_texto.className;
-            carta_6_texto.className = "card uno";
-            carta_actual[1].className = carta_6_imagen.className;
-            carta_6_imagen.className = "card uno";
-        });
-
-        carta_7_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_7_texto.className;
-            carta_7_texto.className = "card uno";
-            carta_actual[1].className = carta_7_imagen.className;
-            carta_7_imagen.className = "card uno";
-        });
-
-        carta_8_texto.addEventListener("click", () => {
-            let carta_actual = document.getElementsByClassName("card uno");
-            carta_actual[0].className = carta_8_texto.className;
-            carta_8_texto.className = "card uno";
-            carta_actual[1].className = carta_8_imagen.className;
-            carta_8_imagen.className = "card uno";
-        });
-    </script>
+    <script src="../js/gustos.js"></script>
 </Layout>
 
 <style>

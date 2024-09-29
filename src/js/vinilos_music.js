@@ -1,4 +1,4 @@
-const url = false ? '../' : '';
+import url from "./url";
 
 const nirvana_mp3 = url + "music/Smells_Like_Teen_Spirit.mp3";
 const oasis_mp3 = url + "music/La_Cancion.mp3";

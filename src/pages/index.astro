@@ -2,6 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import Cabezera from "../components/Cabezera.astro";
 import Info from "../components/Info.astro";
+import { recursos_extra, iconos } from "../js/links.js";
+
+const { creatividad_img, flor_img, puntos_img, mas_img, cupon_sec_img } =
+	recursos_extra;
+
+const { facebook, instagram, tiktok } = iconos;
 ---
 
 <Layout title="Personal_Page">
@@ -9,7 +15,7 @@ import Info from "../components/Info.astro";
 		<Cabezera />
 		<div class="Frase_contenido">
 			<div class="Frase_imagen">
-				<img src="img/creatividad.png" alt="Frase Favorita" />
+				<img src={creatividad_img} alt="Frase Favorita" />
 			</div>
 			<div class="Frase_texto">
 				<p>
@@ -43,23 +49,19 @@ import Info from "../components/Info.astro";
 					<em>EMPATIA</em> es algo de un valor profundo, ya que permite
 					entender y conectar mejor con las emociones de las demas personas.
 				</p>
-				<img src="img/Flor.png" alt="Imagen Identificativa" />
+				<img src={flor_img} alt="Imagen Identificativa" />
 			</div>
 		</div>
 		<div class="Info_contenido">
 			<Info
 				title="Cupon"
-				img="img/Cupon.webp"
+				img={cupon_sec_img}
 				ref="/Personal_Card/cupon"
 			/>
-			<Info
-				title="..."
-				img="img/puntos.jpeg"
-				ref="/Personal_Card/puntos"
-			/>
+			<Info title="..." img={puntos_img} ref="/Personal_Card/puntos" />
 			<Info
 				title="¿Quieres mas?"
-				img="img/Mas.png"
+				img={mas_img}
 				ref="/Personal_Card/mas"
 			/>
 		</div>
@@ -67,31 +69,18 @@ import Info from "../components/Info.astro";
 			<div class="Pie_redes">
 				<ul>
 					<li>
-						<a
-							class="redes"
-							href="https://www.facebook.com/profile.php?id=100037348455205&mibextid=LQQJ4d"
-							><img
-								class="icons"
-								src="icons/facebook.png"
-							/>Facebook</a
+						<a class="redes"
+							><img class="icons" src={facebook} />Facebook</a
 						>
 					</li>
 					<li>
-						<a
-							class="redes"
-							href="https://www.instagram.com/metzliggc._.08?igsh=MTh5emo2OGp3ZHRvOQ=="
-							><img
-								class="icons"
-								src="icons/instagram.png"
-							/>Instagram</a
+						<a class="redes"
+							><img class="icons" src={instagram} />Instagram</a
 						>
 					</li>
 					<li>
-						<a class="redes" href="#"
-							><img
-								class="icons"
-								src="icons/tiktok.png"
-							/>Tiktok</a
+						<a class="redes"
+							><img class="icons" src={tiktok} />Tiktok</a
 						>
 					</li>
 				</ul>
